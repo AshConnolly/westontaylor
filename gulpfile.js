@@ -23,48 +23,69 @@ gulp.task('mincss', function () {
 
 gulp.task('sass', function () {
   return gulp.src(
-        './src/sass/*.scss'
+        // './src/sass/*.scss'
+        './scss/main.scss'
     )
     .pipe(sourcemaps.init())
     .pipe(sass().on(
         'error', sass.logError
     ))
     .pipe(autoprefixer(['ie 9', 'safari 6', 'Firefox < 20']))
-    .pipe(rename('main.css'))
+    // .pipe(rename('main.css'))
     .pipe(sourcemaps.write())    
     .pipe(gulp.dest(
-        './dist/css/'
+        './css/'
     ))
     .pipe(browsersync.reload({
         stream: true
     }))
 });
 
+gulp.task('sass-prod', function () {
+    return gulp.src(
+          // './src/sass/*.scss'
+          './scss/main.scss'
+      )
+      .pipe(sourcemaps.init())
+      .pipe(sass({outputStyle: 'compressed'}).on(
+          'error', sass.logError
+      ))
+      .pipe(autoprefixer(['ie 9', 'safari 6', 'Firefox < 20']))
+      // .pipe(rename('main.css'))
+      .pipe(gulp.dest(
+          './css/'
+      ))
+      .pipe(browsersync.reload({
+          stream: true
+      }))
+  });
+  
 
-gulp.task('js', function() {
-    // set concat order to dependencies first then all other remaining files - 
-    //return gulp.src([siteroot + 'js/bacon.js', siteroot + 'js/eggs.js', siteroot + 'js/*.js' ])
-      return gulp.src(siteroot + 'src/js/**/*.js')
-        .pipe(concat('main.js'))
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest('dist/js'));
-});
+
+// gulp.task('js', function() {
+//     // set concat order to dependencies first then all other remaining files - 
+//     //return gulp.src([siteroot + 'js/bacon.js', siteroot + 'js/eggs.js', siteroot + 'js/*.js' ])
+//       return gulp.src(siteroot + 'src/js/**/*.js')
+//         .pipe(concat('main.js'))
+//         .pipe(rename({
+//             suffix: '.min'
+//         }))
+//         .pipe(gulp.dest('dist/js'));
+// });
 
 //image min - combines gifsicle, jpegtran, optipng, svgo
-gulp.task('imgcomp', () => {
-    return gulp.src(siteroot + 'img/**/*')
-        .pipe(imagemin({
-            optimizationLevel: 4,
-            progressive: true,
-            svgoPlugins: [{
-                removeViewBox: false
-            }],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('dist/img'));
-});
+// gulp.task('imgcomp', () => {
+//     return gulp.src(siteroot + 'img/**/*')
+//         .pipe(imagemin({
+//             optimizationLevel: 4,
+//             progressive: true,
+//             svgoPlugins: [{
+//                 removeViewBox: false
+//             }],
+//             use: [pngquant()]
+//         }))
+//         .pipe(gulp.dest('dist/img'));
+// });
 
 
 // Static server
@@ -87,14 +108,13 @@ gulp.task('browsersync', function() {
 
 //below will watch files once the browsersync task is completed
 gulp.task('watch', ['browsersync'], function() {
-    gulp.watch(siteroot + 'src/sass/**/*.scss', ['sass']);
-    gulp.watch(siteroot + 'dist/css/main.css', ['mincss']);
-    gulp.watch(siteroot + 'src/js/**/*.js', ['js']);
+    gulp.watch(siteroot + '/scss/**/*.scss', ['sass']);
+    // gulp.watch(siteroot + 'src/js/**/*.js', ['js']);
     gulp.watch(siteroot + '**/*.html', browsersync.reload);
     gulp.watch(siteroot + '**/*.php', browsersync.reload);
-    gulp.watch(siteroot + 'src/js/**/*.js', browsersync.reload);
+    gulp.watch(siteroot + '/js/**/*.js', browsersync.reload);
     // Other watchers
 })
 
 // gulp.task('default', ['sass', 'js', 'browsersync', 'watch']);
-gulp.task('default', ['sass', 'js', 'watch']);
+gulp.task('default', ['sass', 'watch']);
