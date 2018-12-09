@@ -167,6 +167,7 @@
 	padding:40px;
 	border-radius: 10px;
 	@include transition();
+	height:100%;
 	h4,.lnr{
 		color:$black;
 	}
@@ -186,6 +187,7 @@
 	}
 	@media(max-width:960px){
 		margin-bottom:30px;	
+		height: auto
 	}
 }
 
@@ -267,7 +269,10 @@
 
 .single-service{
 	.icon{
-		margin-right:30px;
+		margin-right:20px;
+		@media(max-width:800px) {
+			margin-right:10px;
+		}
 	 	h1{
 			font-weight:200;
 			color:$primary-color;
