@@ -47,6 +47,20 @@ ol, ul {
     padding: 0;
     list-style: none;
 }
+
+ul {
+        list-style-position: outside;
+        list-style-type: disc;
+        margin-top: 0;
+        padding-left: 2em;
+        li {
+            ul {
+                margin-bottom: 0;
+            }
+
+        }
+}
+
 select {
     display: block;
 }
