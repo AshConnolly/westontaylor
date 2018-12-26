@@ -293,14 +293,16 @@
 .callto-action-area{
 	background-color:$primary-color;
 	.primary-btn{
-		background-color:#88d200;
+		background-color:white;
 		border-radius:0;
-		color:$white;
+		color:$primary-color;
 		text-transform:capitalize;
 		border:1px solid transparent;
+		text-decoration: none;
 		&:hover{
 			background-color:transparent;
 			border-color:$white;
+			color: white;
 		}
 	}
 }
@@ -593,7 +595,8 @@
 
 	.footer-area{
 		padding-top:100px;
-		background-color:#04091e;
+		// background-color:#04091e;
+		background-color:$primary-color;
 
 		h6{
 			color:#fff;
@@ -601,6 +604,8 @@
 			font-size:18px;
 			font-weight:600;
 		}
+		p, a {color: white}
+		i {color: white !important}
 	}
 	.copy-right-text{
 		i,a{
@@ -730,7 +735,7 @@
 	.footer-text{
 		padding-top:20px;
 		a,i{
-			color:$primary-color;
+			// color:$primary-color;
 		}
 	}
 
