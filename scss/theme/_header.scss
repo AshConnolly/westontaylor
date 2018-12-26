@@ -16,11 +16,13 @@
   // background:rgba(#000,.8);
   background:rgba($primary-color,.9);
   transition: all 0.5s;
+  padding: 7px 0;
 }
 
 @media(max-width:673px){
-  #logo{
-      margin-left:20px;
+  .header-row{
+      padding-left:20px;
+      padding-right:20px;
   }
 }
 
@@ -133,11 +135,11 @@
   margin: 0;
 }
 
-@media (min-width: 1024px) {
-  #nav-menu-container {
-    padding-right: 60px;
-  }
-}
+// @media (min-width: 1024px) {
+//   #nav-menu-container {
+//     padding-right: 60px;
+//   }
+// }
 
 @media (max-width: 768px) {
   #nav-menu-container {
@@ -199,10 +201,10 @@
 
 /* Mobile Nav Toggle */
 #mobile-nav-toggle {
-  position: fixed;
-  right: 15px;
+  // position: absolute;
+  // right: 15px;
   z-index: 999;
-  top: 16px;
+  // top: 16px;
   border: 0;
   background: none;
   font-size: 24px;
@@ -210,6 +212,7 @@
   transition: all 0.4s;
   outline: none;
   cursor: pointer;
+  order: 2;
 }
 
 #mobile-nav-toggle i {
@@ -217,7 +220,7 @@
   font-weight: 900;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   #mobile-nav-toggle {
     display: inline;
   }
@@ -233,7 +236,8 @@
   padding-top: 18px;
   bottom: 0;
   z-index: 998;
-  background: rgba(0, 0, 0, 0.8);
+  // background: rgba(0, 0, 0, 0.8);
+  background: rgba($primary-color, 1);
   left: -260px;
   width: 260px;
   overflow-y: auto;
