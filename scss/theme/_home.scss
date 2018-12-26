@@ -619,6 +619,8 @@
 	.footer-social{
 		a{
 			padding-right:25px;
+			display: flex;
+			align-items: center;
 			@include transition();
 			&:hover{
 
@@ -718,9 +720,9 @@
 		   font-weight: 300;
 		}
 
-		@include media-breakpoint-down(md) {
-			margin-bottom:30px;
-		}
+		// @include media-breakpoint-down(md) {
+		// 	margin-bottom:30px;
+		// }
 	}
 
 
@@ -733,7 +735,7 @@
 
 
 	.footer-text{
-		padding-top:20px;
+		// padding-top:20px;
 		a,i{
 			// color:$primary-color;
 		}
