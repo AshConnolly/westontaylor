@@ -183,10 +183,10 @@
 	border-radius: 10px;
 	@include transition();
 	height:100%;
-	h4,.lnr,.fa{
-		color:$black;
+	h4,.lnr,.fa,.fas,.far{
+		color:rgba(0,0,0,.8);
 	}
-	.lnr, .fa{
+	.lnr, .fa,.fas,.far{
 		font-size:30px;
 	}
 	h4{
