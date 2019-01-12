@@ -588,12 +588,16 @@
 	padding: 25px 30px 12px 30px;
 	// display: flex;
 	// justify-content: center;
-	text-align: center;
+	// text-align: center;
+	// p {text-align: left;}
 	.thumb{
 		margin-right:30px;
 		margin-bottom: 30px;
 		flex-shrink: 0;
 		display: block;
+	}
+	img {
+		width: 80px;
 	}
 	h4{
 		@include transition();
@@ -604,8 +608,14 @@
 		}
 	}
 	@media (min-width: 800px) {
-		text-align: left;
+		// text-align: left;
 		display: flex;
+	}
+	@media (max-width: 799px) {
+		img {
+			margin: 0 auto;
+			display: block;
+		}
 	}
 }
 
