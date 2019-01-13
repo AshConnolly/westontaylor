@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /dev
 Disallow: /unused/
