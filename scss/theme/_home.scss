@@ -789,6 +789,7 @@
 .generic-banner {
 	background-color:$primary-color;
 	text-align:center;
+	position: relative;
 
 	&:before {
 		content: '';
